@@ -29,6 +29,7 @@ parser.add_argument('--auto', action='store_true', help='Automatically answer "y
 
 args = parser.parse_args()
 transactions = []
+addr = None
 
 print("\033[33mStarting wallet cleanup...\033[0m")
 print(f"\033[36mMax input amount:\033[0m {args.max_amt_input} MEWC"
