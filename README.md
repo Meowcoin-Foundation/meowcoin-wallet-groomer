@@ -5,7 +5,11 @@ Collects small transactions in a QT wallet into larger ones. This tool has been 
 
 This tool only works with Python 3. You will need to install the `bitcoinrpc` Python package. This can be done using `pip` by:
 
-`sudo pip3 install python-bitcoinrpc`
+Linux:
+`pip3 install -r requirements.txt`
+
+Windows:
+`python -m pip install -r requirements.txt`
 
 You will also need to set up your QT wallet to start a RPC server, since this is how the tool interacts with the wallet. You can do so by editing your `meowcoin.conf` file. Feel free to edit the user/pass/port.
 
@@ -38,6 +42,7 @@ Normally, there should be no need to use any of the optional arguments. If you'r
 ```
 usage: groomer.py [-h] [-i MAX_AMT_INPUT] [-n MAX_NUM_TX]
                   [-o MAX_AMT_PER_OUTPUT] [-f FEE]
+                  [-a ADDRESS] [--reuse] [--auto]
                   rpc_server
 
 This script generates transaction(s) to cleanup your wallet. It looks for the
@@ -63,4 +68,8 @@ optional arguments:
                         The maximum amount (in MEWC) to send to a single output
                         address (default: 10000 MEWC)
   -f FEE, --fee FEE     The amount of fees (in MEWC) to use for the transaction
+  --reuse               Reuse the same address for the consolidated funds (default: False)
+  -a ADDRESS, --address ADDRESS
+                        The address to send the consolidated funds to
+  --auto                Automatically answer "yes" to all questions
 ```
